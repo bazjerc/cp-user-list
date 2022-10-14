@@ -8,7 +8,7 @@ function UserList(props) {
       <UserItem
         name={user.name}
         age={user.age}
-        userId={props.id}
+        id={user.id}
         key={user.id}
         onRemoveUser={props.onRemoveUser}
       />
