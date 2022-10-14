@@ -1,0 +1,41 @@
+.user-form-container {
+  margin-bottom: 3rem;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.user-form > div.input-wrapper {
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.submit-button {
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  background-color: rgb(106, 0, 155);
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+}

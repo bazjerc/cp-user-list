@@ -1,0 +1,25 @@
+.user-item {
+  padding: 1rem;
+  border: 1px solid rgb(106, 0, 155);
+  border-radius: 0.8rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-item-buttons-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.user-item-button {
+  font-family: inherit;
+  font-size: 1.2rem;
+  border: none;
+  background-color: rgb(106, 0, 155);
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
