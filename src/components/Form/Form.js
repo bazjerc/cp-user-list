@@ -59,6 +59,9 @@ function Form(props) {
     if (!validateInput(newUser)) return;
 
     props.onAddUser(newUser);
+
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   return (
@@ -73,6 +76,7 @@ function Form(props) {
             name="username"
             id="username-input"
             type="text"
+            value={enteredUsername}
             onChange={inputChangeHandler}
           />
         </div>
@@ -86,6 +90,7 @@ function Form(props) {
             id="age-input"
             type="number"
             step="1"
+            value={enteredAge}
             onChange={inputChangeHandler}
           />
         </div>
