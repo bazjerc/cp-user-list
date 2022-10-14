@@ -3,7 +3,7 @@ import "./Form.css";
 
 import Card from "../Layout/Card";
 
-function Form() {
+function Form(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
@@ -21,8 +21,44 @@ function Form() {
     }
   };
 
+  const validateInput = (userData) => {
+    const name = userData.name;
+    const age = userData.age;
+
+    const modalData = {
+      header: "",
+      body: "",
+    };
+
+    if (!name.length || !age.length) {
+      modalData.header = "Empty Input";
+      modalData.body =
+        "Please enter a valid username and age (non-empty values)";
+      props.onShowModal(modalData);
+      return false;
+    }
+    if (+age <= 0) {
+      modalData.header = "Invalid Input";
+      modalData.body = "Please enter a valid age (> 0)";
+      props.onShowModal(modalData);
+      return false;
+    }
+
+    return true;
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
+
+    const newUser = {
+      name: enteredUsername,
+      age: enteredAge,
+      id: Math.random(),
+    };
+
+    if (!validateInput(newUser)) return;
+
+    props.onAddUser(newUser);
   };
 
   return (
@@ -49,12 +85,13 @@ function Form() {
             name="age"
             id="age-input"
             type="number"
-            min="1"
             step="1"
             onChange={inputChangeHandler}
           />
         </div>
-        <button className="submit-button" type="submit">Add user</button>
+        <button className="submit-button" type="submit">
+          Add user
+        </button>
       </form>
     </Card>
   );

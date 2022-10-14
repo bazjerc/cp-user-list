@@ -6,11 +6,17 @@ function Modal(props) {
     <ModalBackground>
       <div className="modal">
         <div className="modal-header">
-          <p>Message</p>
+          <p>{props.header}</p>
         </div>
         <div className="modal-body">
-          <p>Body text</p>
-        <button className="modal-button" type="button">Okay</button>
+          <p>{props.body}</p>
+          <button
+            className="modal-button"
+            type="button"
+            onClick={props.onCloseModal}
+          >
+            Okay
+          </button>
         </div>
       </div>
     </ModalBackground>

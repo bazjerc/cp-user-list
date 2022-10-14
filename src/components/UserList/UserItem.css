@@ -23,3 +23,7 @@
   cursor: pointer;
   color: white;
 }
+
+.user-item-button:focus {
+  outline: none;
+}

@@ -23,10 +23,12 @@
   border: none;
   padding: 0.5rem;
   border-radius: 0.7rem;
+  font-size: 1.8rem;
+  font-family: inherit;
 }
 
 .input:focus {
-  outline: none;
+  outline: 1px dashed rgb(106, 0, 155);
 }
 
 .submit-button {
@@ -38,4 +40,8 @@
   border-radius: 0.5rem;
   cursor: pointer;
   color: white;
+}
+
+.submit-button:focus {
+  outline: none;
 }

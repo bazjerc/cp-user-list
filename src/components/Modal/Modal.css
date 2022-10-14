@@ -3,7 +3,7 @@
   left: 50%;
   top: 25%;
   transform: translate(-50%, -50%);
-  width: 40rem;
+  width: 70rem;
   border-radius: 1.2rem;
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
   font-size: 2rem;
   background-color: white;
   color: black;
-  padding: 2.5rem 2rem 5rem 2rem;
+  padding: 2.5rem 2rem 2.5rem 2rem;
   height: 15rem;
 }
 
@@ -35,4 +35,8 @@
   position: absolute;
   bottom: 2rem;
   right: 2rem;
+}
+
+.modal-button:focus {
+  outline: none;
 }

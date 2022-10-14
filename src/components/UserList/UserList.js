@@ -2,15 +2,20 @@ import Card from "../Layout/Card";
 import UserItem from "./UserItem";
 import "./UserList.css";
 
-function UserList() {
-  let content;
+function UserList(props) {
+  let content = props.users.map((user) => {
+    return (
+      <UserItem
+        name={user.name}
+        age={user.age}
+        userId={props.id}
+        key={user.id}
+        onRemoveUser={props.onRemoveUser}
+      />
+    );
+  });
 
-  return (
-    <Card className="user-list">
-      <UserItem name="Icek" age="32" />
-      <UserItem name="Icek" age="32" />
-    </Card>
-  );
+  return <Card className="user-list">{content}</Card>;
 }
 
 export default UserList;
