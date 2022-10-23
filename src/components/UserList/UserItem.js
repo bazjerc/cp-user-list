@@ -1,6 +1,8 @@
 import "./UserItem.css";
 
 function UserItem(props) {
+
+
   return (
     <div className="user-item" id={props.id}>
       <p>
@@ -9,7 +11,7 @@ function UserItem(props) {
       </p>
       <div className="user-item-buttons-container">
         <button className="user-item-button" type="button">Edit</button>
-        <button className="user-item-button" type="button" onClick={props.onRemoveUser}>Remove</button>
+        <button className="user-item-button" type="button" onClick={() => props.onRemoveUser(props.id)}>Remove</button>
       </div>
     </div>
   );

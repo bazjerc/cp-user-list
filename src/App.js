@@ -17,9 +17,13 @@ function App() {
     });
   };
 
-  const removeUserHandler = () => {
-    /* const userId = props.id; */
-    console.log(123);
+  const removeUserHandler = (userId) => {
+    const userIdx = users.findIndex((user) => user.id === userId);
+    setUsers((users) => {
+      const newUsers = [...users];
+      newUsers.splice(userIdx, 1);
+      return newUsers;
+    });
   };
 
   const showModalHandler = (modalData) => {
