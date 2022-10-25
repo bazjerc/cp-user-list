@@ -27,3 +27,28 @@
 .user-item-button:focus {
   outline: none;
 }
+
+.user-item-input {
+  font-family: inherit;
+  width: 10rem;
+  font-size: inherit;
+  border: 0;
+  border-radius: 0.3rem;
+  outline: 1px dashed rgba(0, 0, 0, 0.4);
+}
+.user-item-input:focus {
+  outline: 1px dashed rgb(106, 0, 155);
+}
+
+.user-item-name-input {
+  width: 10rem;
+}
+
+.user-item-age-input {
+  width: 5ch;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}

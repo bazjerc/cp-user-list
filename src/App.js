@@ -12,6 +12,8 @@ function App() {
   const [modalData, setModalData] = useState({});
 
   const addUserHandler = (userData) => {
+    if (!validateInput(userData)) return;
+
     setUsers((currUsers) => {
       return [...currUsers, userData];
     });
@@ -26,9 +28,47 @@ function App() {
     });
   };
 
-  const showModalHandler = (modalData) => {
-    setIsModalShown(true);
-    setModalData(modalData);
+  const editUserHandler = (userId, newUserData) => {
+    if (!validateInput(newUserData)) return false;
+
+    const userIdx = users.findIndex((user) => user.id === userId);
+
+    setUsers((users) => {
+      const newUsers = [...users];
+      newUsers[userIdx].name = newUserData.name;
+      newUsers[userIdx].age = newUserData.age;
+      return newUsers;
+    });
+    
+    return true;
+  };
+
+  const validateInput = (userData) => {
+    const name = userData.name;
+    const age = userData.age;
+
+    const modalData = {
+      header: "",
+      body: "",
+    };
+
+    if (!name.length || !age.length) {
+      modalData.header = "Empty Input";
+      modalData.body =
+        "Please enter a valid username and age (non-empty values)";
+      setIsModalShown(true);
+      setModalData(modalData);
+      return false;
+    }
+    if (+age <= 0) {
+      modalData.header = "Invalid Input";
+      modalData.body = "Please enter a valid age (> 0)";
+      setIsModalShown(true);
+      setModalData(modalData);
+      return false;
+    }
+
+    return true;
   };
 
   const closeModalHandler = () => {
@@ -38,9 +78,14 @@ function App() {
 
   return (
     <div className="app-container">
-      <Form onAddUser={addUserHandler} onShowModal={showModalHandler} />
+      <Form onAddUser={addUserHandler} onInputValidate={validateInput} />
       {users.length !== 0 && (
-        <UserList users={users} onRemoveUser={removeUserHandler} />
+        <UserList
+          users={users}
+          onRemoveUser={removeUserHandler}
+          onEditUser={editUserHandler}
+          onInputValidate={validateInput}
+        />
       )}
       {isModalShown && (
         <Modal {...modalData} onCloseModal={closeModalHandler} />

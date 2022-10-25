@@ -6,11 +6,12 @@ function UserList(props) {
   let content = props.users.map((user) => {
     return (
       <UserItem
+        key={user.id}
         name={user.name}
         age={user.age}
         id={user.id}
-        key={user.id}
         onRemoveUser={props.onRemoveUser}
+        onEditUser={props.onEditUser}
       />
     );
   });

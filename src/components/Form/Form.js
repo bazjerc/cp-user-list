@@ -21,32 +21,6 @@ function Form(props) {
     }
   };
 
-  const validateInput = (userData) => {
-    const name = userData.name;
-    const age = userData.age;
-
-    const modalData = {
-      header: "",
-      body: "",
-    };
-
-    if (!name.length || !age.length) {
-      modalData.header = "Empty Input";
-      modalData.body =
-        "Please enter a valid username and age (non-empty values)";
-      props.onShowModal(modalData);
-      return false;
-    }
-    if (+age <= 0) {
-      modalData.header = "Invalid Input";
-      modalData.body = "Please enter a valid age (> 0)";
-      props.onShowModal(modalData);
-      return false;
-    }
-
-    return true;
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -56,7 +30,7 @@ function Form(props) {
       id: Math.random(),
     };
 
-    if (!validateInput(newUser)) return;
+    if (!props.onInputValidate(newUser)) return;
 
     props.onAddUser(newUser);
 
