@@ -30,12 +30,12 @@ function Form(props) {
       id: Math.random(),
     };
 
-    if (!props.onInputValidate(newUser)) return;
+    const isAdded = props.onAddUser(newUser);
 
-    props.onAddUser(newUser);
-
-    setEnteredUsername("");
-    setEnteredAge("");
+    if (isAdded) {
+      setEnteredUsername("");
+      setEnteredAge("");
+    }
   };
 
   return (

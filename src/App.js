@@ -12,11 +12,13 @@ function App() {
   const [modalData, setModalData] = useState({});
 
   const addUserHandler = (userData) => {
-    if (!validateInput(userData)) return;
+    if (!validateInput(userData)) return false;
 
     setUsers((currUsers) => {
       return [...currUsers, userData];
     });
+
+    return true;
   };
 
   const removeUserHandler = (userId) => {
