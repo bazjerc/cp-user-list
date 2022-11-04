@@ -1,20 +1,9 @@
-import { useRef } from "react";
 import ReactDOM from "react-dom";
 import "./ModalOverlay.css";
 import "./ModalBackground.css";
 
 function ModalBackdrop(props) {
-  const modalBackgroundRef = useRef();
-
-  return (
-    <div
-      className="modal-background"
-      ref={modalBackgroundRef}
-      onClick={(e) => {
-        e.target === modalBackgroundRef.current && props.onCloseModal();
-      }}
-    />
-  );
+  return <div className="modal-background" onClick={props.onCloseModal} />;
 }
 
 function ModalOverlay(props) {
