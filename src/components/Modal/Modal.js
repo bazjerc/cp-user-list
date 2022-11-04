@@ -3,7 +3,7 @@ import "./Modal.css";
 
 function Modal(props) {
   return (
-    <ModalBackground>
+    <ModalBackground onCloseModal={props.onCloseModal}>
       <div className="modal">
         <div className="modal-header">
           <p>{props.header}</p>

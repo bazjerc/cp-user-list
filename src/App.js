@@ -4,10 +4,8 @@ import Form from "./components/Form/Form";
 import UserList from "./components/UserList/UserList";
 import Modal from "./components/Modal/Modal";
 
-const mockUsers = [{ id: Math.random(), name: "Icek", age: 35 }];
-
 function App() {
-  const [users, setUsers] = useState(mockUsers);
+  const [users, setUsers] = useState([]);
   const [isModalShown, setIsModalShown] = useState(false);
   const [modalData, setModalData] = useState({});
 
@@ -41,7 +39,7 @@ function App() {
       newUsers[userIdx].age = newUserData.age;
       return newUsers;
     });
-    
+
     return true;
   };
 
