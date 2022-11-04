@@ -1,4 +1,4 @@
-.modal {
+.modal-overlay {
   position: absolute;
   left: 50%;
   top: 25%;
@@ -8,14 +8,14 @@
   overflow: hidden;
 }
 
-.modal-header {
+.modal-overlay-header {
   font-size: 2.4rem;
   background-color: rgb(106, 0, 155);
   color: white;
   padding: 1.5rem 2rem;
 }
 
-.modal-body {
+.modal-overlay-body {
   font-size: 2rem;
   background-color: white;
   color: black;
@@ -23,7 +23,7 @@
   height: 15rem;
 }
 
-.modal-button {
+.modal-overlay-button {
   font-family: inherit;
   font-size: 1.6rem;
   border: none;
@@ -37,6 +37,6 @@
   right: 2rem;
 }
 
-.modal-button:focus {
+.modal-overlay-button:focus {
   outline: none;
 }
